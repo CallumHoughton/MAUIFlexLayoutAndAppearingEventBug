@@ -53,14 +53,16 @@ namespace MAUIAppearingEventAndFlexLayoutBugs.ViewModels
             }
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             AppearingEventCounter++;
             if (IsNavigating)
             {
-                IsNavigating = false;
-                App.AppearingEventBugRootFlyoutPage.Detail.Navigation.PushAsync(new AppearingEventBugChildPage());
+                // if you uncomment out the delay, the pages then begin auto navigating in a cycle correctly
+                // otherwise the events seem to misfire and navigation stops
+                //await Task.Delay(500);
+                await App.AppearingEventBugRootFlyoutPage.Detail.Navigation.PushAsync(new AppearingEventBugChildPage());
             }
         }
     }
