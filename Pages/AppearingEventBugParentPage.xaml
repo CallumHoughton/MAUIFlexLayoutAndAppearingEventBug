@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAppearingEventAndFlexLayoutBugs.Pages.AppearingEventBugParentPage"
+             xmlns:vms="clr-namespace:MAUIAppearingEventAndFlexLayoutBugs.ViewModels"
+             Title="AppearingEventBugParentPage">
+    <ContentPage.BindingContext>
+        <vms:AppearingEventBugParentPageViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Button Command="{Binding ToggleNavigationProcessCommand}" Text="Click me to start auto navigating"></Button>
+        <Label x:Name="AppearingEventCounterLabel" Text="{Binding AppearingEventCounter, StringFormat='Appearing event count {0:D}'}"></Label>
+        <Label Margin="5,20,5,5" Text="The count is reset when the button is pressed, it should be '1' initially"></Label>
+        <Label Margin="5,20" Text="The child page is pushed twice onto the stack, once initially and then again when navigating back to the parent, and so the appearing event should be be fired twice"></Label>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAppearingEventAndFlexLayoutBugs.Pages.AppearingEventBugChildPage"
+             xmlns:vms="clr-namespace:MAUIAppearingEventAndFlexLayoutBugs.ViewModels"
+             Title="AppearingEventBugChildPage">
+    <ContentPage.BindingContext>
+        <vms:AppearingEventBugChildPageViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label 
+            Text="I am the appearing event bug parent page, I will be dismissed in 3 seconds"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

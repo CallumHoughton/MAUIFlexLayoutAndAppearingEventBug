@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAppearingEventAndFlexLayoutBugs.Pages.FlexLayoutBugPage"
+             Title="FlexLayoutBugPage">
+    <!--The FlexLayout inside a grid is how I discovered the bug (with spanning 4 columns) so I've replicated the layout closely that it was in-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <!--In Xamarin.Forms, the ImageButtons are squashed to fit into the width and height of the container-->
+        <FlexLayout Grid.Row="1" Grid.ColumnSpan="4" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+            <ImageButton Source="test_button_image.png"/>
+            <ImageButton Source="test_button_image.png"/>
+            <ImageButton Source="test_button_image.png"/>
+            <ImageButton Source="test_button_image.png"/>
+            <ImageButton Source="test_button_image.png"/>
+            <ImageButton Source="test_button_image.png"/>
+        </FlexLayout>
+
+    </Grid>
+</ContentPage>
